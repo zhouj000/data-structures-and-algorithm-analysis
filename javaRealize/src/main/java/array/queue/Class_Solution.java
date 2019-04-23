@@ -4,11 +4,13 @@ package array.queue;
  * 课程题：岛屿的数量
  *
  * 自己的设计思路：（没有实现）
- * 1.从0,0根节点开始向右和下广度遍历，类似一棵树，找到1的放入used队列
+ * 1.从0,0根节点开始向右和下广度DFS遍历，类似一棵树，找到1的放入used队列
  * 2.判断1的节点，之后找下一个根节点查找下一棵树的岛屿
  * 3.卡在怎么找下一个根节点，还不会重复计算
  *
- * 最后网上找算法，没考虑到可以把找到的陆地修改为0，避免重复的方法
+ * 最后网上找算法，没考虑到的点：
+ * 1.可以把找到的陆地修改为0，避免重复的方法
+ * 2.按树的方式思路遍历，虽然想到四个方向，但没按图的思路遍历
  */
 public class Class_Solution {
 
@@ -75,5 +77,39 @@ public class Class_Solution {
         return -1;          // there is no path from root to target
     }
 */
+
+
+    class SolutionBest {
+
+        public int numIslands(char[][] grid) {
+            if (grid.length == 0) return 0;
+            int count = 0;
+            for (int i = 0; i < grid.length; i++) {
+                for (int j = 0; j < grid[0].length; j++) {
+                    if (grid[i][j] == '1') {
+                        dfs(grid, i, j);
+                        count++;
+                    }
+                }
+            }
+            return count;
+        }
+
+        public void dfs(char[][] grid, int i, int j) {
+            grid[i][j] = '0';
+            if (i != 0 && grid[i - 1][j] == '1') {
+                dfs(grid, i - 1, j);
+            }
+            if (i < grid.length - 1 && grid[i + 1][j] == '1') {
+                dfs(grid, i + 1, j);
+            }
+            if (j != 0 && grid[i][j - 1] == '1') {
+                dfs(grid, i, j - 1);
+            }
+            if (j < grid[0].length - 1 && grid[i][j + 1] == '1') {
+                dfs(grid, i, j + 1);
+            }
+        }
+    }
 
 }
