@@ -10,14 +10,14 @@ package array.queue;
  *
  * java类似实现：java.util.concurrent.ArrayBlockingQueue
  */
-class Class_MyCircularQueue {
+class Class1_MyCircularQueue {
 
     private int[] array;
     private int head = -1;
     private int tail = -1;
 
     /** Initialize your data structure here. Set the size of the queue to be k. */
-    public Class_MyCircularQueue(int k) {
+    public Class1_MyCircularQueue(int k) {
         array = new int[k];
     }
 

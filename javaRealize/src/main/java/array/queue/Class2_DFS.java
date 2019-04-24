@@ -12,7 +12,7 @@ package array.queue;
  * 1.可以把找到的陆地修改为0，避免重复的方法
  * 2.按树的方式思路遍历，虽然想到四个方向，但没按图的思路遍历
  */
-public class Class_Solution {
+public class Class2_DFS {
 
     public int numIslands(char[][] grid) {
         if (grid == null || grid.length == 0 || grid[0].length == 0)
@@ -79,7 +79,7 @@ public class Class_Solution {
 */
 
 
-    class SolutionBest {
+    class DFSBest {
 
         public int numIslands(char[][] grid) {
             if (grid.length == 0) return 0;
