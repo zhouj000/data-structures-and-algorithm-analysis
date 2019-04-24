@@ -33,7 +33,7 @@ public class Class3_MyOpenLock {
         queue.add(initNum);
         int count = 0;
         // 每轮会有8种可能
-        while(!queue.isEmpty()) {
+        while (!queue.isEmpty()) {
             count++;
             int size = queue.size();
             for (int i = 0; i < size; i++) {
@@ -97,7 +97,7 @@ public class Class3_MyOpenLock {
         Queue<Integer> q = new ArrayDeque<>();
 
         public int openLock(String[] deadends, String target0) {
-            for (String s: deadends)
+            for (String s : deadends)
                 cube[Integer.parseInt(s)] = true;
 
             target = Integer.parseInt(target0);
@@ -111,17 +111,17 @@ public class Class3_MyOpenLock {
             q.offer(last);
             tail = last;
 
-            while(!q.isEmpty()) {
+            while (!q.isEmpty()) {
                 int x, y, z, w;
                 head = q.poll();
 
-                x = (head/1000)%10;
-                y = (head/100)%10;
-                z = (head/10)%10;
-                w = head%10;
+                x = (head / 1000) % 10;
+                y = (head / 100) % 10;
+                z = (head / 10) % 10;
+                w = head % 10;
 
                 int[] orders = tentacle0(x, y, z, w);
-                for (int i=0; i<8; i++){
+                for (int i = 0; i < 8; i++) {
                     int order = orders[i];
                     if (cube[order] == true)
                         continue;
@@ -144,14 +144,14 @@ public class Class3_MyOpenLock {
 
         int[] tentacle0(int x, int y, int z, int w) {
             int[] r = new int[8];
-            r[0] = ((x+1+10)%10)*1000 + ((y+10)%10)*100 + ((z+10)%10)*10 + (w+10)%10;
-            r[1] = ((x-1+10)%10)*1000 + ((y+10)%10)*100 + ((z+10)%10)*10 + (w+10)%10;
-            r[2] = ((x+10)%10)*1000 + ((y+1+10)%10)*100 + ((z+10)%10)*10 + (w+10)%10;
-            r[3] = ((x+10)%10)*1000 + ((y-1+10)%10)*100 + ((z+10)%10)*10 + (w+10)%10;
-            r[4] = ((x+10)%10)*1000 + ((y+10)%10)*100 + ((z+1+10)%10)*10 + (w+10)%10;
-            r[5] = ((x+10)%10)*1000 + ((y+10)%10)*100 + ((z-1+10)%10)*10 + (w+10)%10;
-            r[6] = ((x+10)%10)*1000 + ((y+10)%10)*100 + ((z+10)%10)*10 + (w+1+10)%10;
-            r[7] = ((x+10)%10)*1000 + ((y+10)%10)*100 + ((z+10)%10)*10 + (w-1+10)%10;
+            r[0] = ((x + 1 + 10) % 10) * 1000 + ((y + 10) % 10) * 100 + ((z + 10) % 10) * 10 + (w + 10) % 10;
+            r[1] = ((x - 1 + 10) % 10) * 1000 + ((y + 10) % 10) * 100 + ((z + 10) % 10) * 10 + (w + 10) % 10;
+            r[2] = ((x + 10) % 10) * 1000 + ((y + 1 + 10) % 10) * 100 + ((z + 10) % 10) * 10 + (w + 10) % 10;
+            r[3] = ((x + 10) % 10) * 1000 + ((y - 1 + 10) % 10) * 100 + ((z + 10) % 10) * 10 + (w + 10) % 10;
+            r[4] = ((x + 10) % 10) * 1000 + ((y + 10) % 10) * 100 + ((z + 1 + 10) % 10) * 10 + (w + 10) % 10;
+            r[5] = ((x + 10) % 10) * 1000 + ((y + 10) % 10) * 100 + ((z - 1 + 10) % 10) * 10 + (w + 10) % 10;
+            r[6] = ((x + 10) % 10) * 1000 + ((y + 10) % 10) * 100 + ((z + 10) % 10) * 10 + (w + 1 + 10) % 10;
+            r[7] = ((x + 10) % 10) * 1000 + ((y + 10) % 10) * 100 + ((z + 10) % 10) * 10 + (w - 1 + 10) % 10;
             return r;
         }
     }
@@ -160,8 +160,8 @@ public class Class3_MyOpenLock {
     class OtherOpenLock {
 
         public int openLock(String[] deadends, String target) {
-            boolean[] isVisited=new boolean[10000];//0000-9999共10000种可能
-            boolean[] isDead=new boolean[10000];
+            boolean[] isVisited = new boolean[10000];//0000-9999共10000种可能
+            boolean[] isDead = new boolean[10000];
             for (String deadNum : deadends) {
                 int dead = Integer.parseInt(deadNum);
                 isDead[dead] = true;
@@ -172,60 +172,60 @@ public class Class3_MyOpenLock {
             if ("0000".equals(target)) {//0000不能是目标排列，否则，不用旋转操作，直接返回零
                 return 0;
             }
-            int step=0;
-            Queue<Integer> queue=new ArrayDeque<>();
+            int step = 0;
+            Queue<Integer> queue = new ArrayDeque<>();
             queue.offer(Integer.parseInt(target));
             //将target保存在queue中，作为根节点，查找到“0000”，表示找到了target,退出
             //此处，ArrayDeque queue当作queue来用，而不是当作Stack来用，所以只能用offer和poll,不能用push和pop
-            isVisited[Integer.parseInt(target)]=true;
-            int last=Integer.parseInt(target);
-            int cenglast=last;
+            isVisited[Integer.parseInt(target)] = true;
+            int last = Integer.parseInt(target);
+            int cenglast = last;
 
-            while(!queue.isEmpty()){
+            while (!queue.isEmpty()) {
                 while (true) {
-                    int[] nei=new int[8];
-                    int head=queue.poll();
+                    int[] nei = new int[8];
+                    int head = queue.poll();
 
-                    if (head==0) {
+                    if (head == 0) {
                         return step;  //查找到“0000”退出
                     }
-                    nei=neighbor(head);
-                    for(int i=0;i<8;i++){
-                        int trans=nei[i];
-                        if(isDead[trans] || isVisited[trans])
+                    nei = neighbor(head);
+                    for (int i = 0; i < 8; i++) {
+                        int trans = nei[i];
+                        if (isDead[trans] || isVisited[trans])
                             continue;
                         queue.offer(trans);
-                        last=trans;
-                        isVisited[trans]=true;
+                        last = trans;
+                        isVisited[trans] = true;
                     }
-                    if (head==cenglast) {
+                    if (head == cenglast) {
                         break;
                     }
                 }
                 step++;
-                cenglast=last;
+                cenglast = last;
             }
             return -1;
         }
 
-        private int[] neighbor(int code){
-            int[] res=new int[8];
-            int a=code%10;
-            int b=code/10%10;
-            int c=code/100%10;
-            int d=code/1000%10;
+        private int[] neighbor(int code) {
+            int[] res = new int[8];
+            int a = code % 10;
+            int b = code / 10 % 10;
+            int c = code / 100 % 10;
+            int d = code / 1000 % 10;
 
-            res[0]=d*1000+c*100+b*10+(a-1+10)%10;//向下取一位：9->8,2->1,1->0
-            res[1]=d*1000+c*100+b*10+(a+1)%10;//向上取一位：9->0,2->3,0->1
+            res[0] = d * 1000 + c * 100 + b * 10 + (a - 1 + 10) % 10;//向下取一位：9->8,2->1,1->0
+            res[1] = d * 1000 + c * 100 + b * 10 + (a + 1) % 10;//向上取一位：9->0,2->3,0->1
 
-            res[2]=d*1000+c*100+(b-1+10)%10*10+a;//向下取一位：9->8,2->1,1->0
-            res[3]=d*1000+c*100+(b+1)%10*10+a;//向下取一位：9->8,2->1,1->0
+            res[2] = d * 1000 + c * 100 + (b - 1 + 10) % 10 * 10 + a;//向下取一位：9->8,2->1,1->0
+            res[3] = d * 1000 + c * 100 + (b + 1) % 10 * 10 + a;//向下取一位：9->8,2->1,1->0
 
-            res[4]=d*1000+(c-1+10)%10*100+b*10+a;//向下取一位：9->8,2->1,1->0
-            res[5]=d*1000+(c+1)%10*100+b*10+a;//向上取一位：9->0,2->3,0->1
+            res[4] = d * 1000 + (c - 1 + 10) % 10 * 100 + b * 10 + a;//向下取一位：9->8,2->1,1->0
+            res[5] = d * 1000 + (c + 1) % 10 * 100 + b * 10 + a;//向上取一位：9->0,2->3,0->1
 
-            res[6]=(d-1+10)%10*1000+c*100+b*10+a;//向下取一位：9->8,2->1,1->0
-            res[7]=(d+1)%10*1000+c*100+b*10+a;//向上取一位：9->0,2->3,0->1
+            res[6] = (d - 1 + 10) % 10 * 1000 + c * 100 + b * 10 + a;//向下取一位：9->8,2->1,1->0
+            res[7] = (d + 1) % 10 * 1000 + c * 100 + b * 10 + a;//向上取一位：9->0,2->3,0->1
 
             return res;
         }

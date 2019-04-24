@@ -16,12 +16,16 @@ class Class1_MyCircularQueue {
     private int head = -1;
     private int tail = -1;
 
-    /** Initialize your data structure here. Set the size of the queue to be k. */
+    /**
+     * Initialize your data structure here. Set the size of the queue to be k.
+     */
     public Class1_MyCircularQueue(int k) {
         array = new int[k];
     }
 
-    /** Insert an element into the circular queue. Return true if the operation is successful. */
+    /**
+     * Insert an element into the circular queue. Return true if the operation is successful.
+     */
     public boolean enQueue(int value) {
         if (isEmpty()) {
             array[0] = value;
@@ -37,7 +41,9 @@ class Class1_MyCircularQueue {
         return true;
     }
 
-    /** Delete an element from the circular queue. Return true if the operation is successful. */
+    /**
+     * Delete an element from the circular queue. Return true if the operation is successful.
+     */
     public boolean deQueue() {
         if (isEmpty()) {
             return false;
@@ -51,7 +57,9 @@ class Class1_MyCircularQueue {
         return true;
     }
 
-    /** Get the front item from the queue. */
+    /**
+     * Get the front item from the queue.
+     */
     public int Front() {
         if (isEmpty()) {
             return -1;
@@ -59,7 +67,9 @@ class Class1_MyCircularQueue {
         return array[head];
     }
 
-    /** Get the last item from the queue. */
+    /**
+     * Get the last item from the queue.
+     */
     public int Rear() {
         if (isEmpty()) {
             return -1;
@@ -67,12 +77,16 @@ class Class1_MyCircularQueue {
         return array[tail];
     }
 
-    /** Checks whether the circular queue is empty or not. */
+    /**
+     * Checks whether the circular queue is empty or not.
+     */
     public boolean isEmpty() {
         return head == -1 && tail == -1;
     }
 
-    /** Checks whether the circular queue is full or not. */
+    /**
+     * Checks whether the circular queue is full or not.
+     */
     public boolean isFull() {
         if (isEmpty()) {
             return false;
@@ -85,8 +99,6 @@ class Class1_MyCircularQueue {
     }
 
 
-
-
     /**
      * 课程题设计示范
      */
@@ -97,7 +109,9 @@ class Class1_MyCircularQueue {
         private int tail;
         private int size;
 
-        /** Initialize your data structure here. Set the size of the queue to be k. */
+        /**
+         * Initialize your data structure here. Set the size of the queue to be k.
+         */
         public MyCircularQueueExample(int k) {
             data = new int[k];
             head = -1;
@@ -105,7 +119,9 @@ class Class1_MyCircularQueue {
             size = k;
         }
 
-        /** Insert an element into the circular queue. Return true if the operation is successful. */
+        /**
+         * Insert an element into the circular queue. Return true if the operation is successful.
+         */
         public boolean enQueue(int value) {
             if (isFull() == true) {
                 return false;
@@ -118,7 +134,9 @@ class Class1_MyCircularQueue {
             return true;
         }
 
-        /** Delete an element from the circular queue. Return true if the operation is successful. */
+        /**
+         * Delete an element from the circular queue. Return true if the operation is successful.
+         */
         public boolean deQueue() {
             if (isEmpty() == true) {
                 return false;
@@ -132,7 +150,9 @@ class Class1_MyCircularQueue {
             return true;
         }
 
-        /** Get the front item from the queue. */
+        /**
+         * Get the front item from the queue.
+         */
         public int Front() {
             if (isEmpty() == true) {
                 return -1;
@@ -140,7 +160,9 @@ class Class1_MyCircularQueue {
             return data[head];
         }
 
-        /** Get the last item from the queue. */
+        /**
+         * Get the last item from the queue.
+         */
         public int Rear() {
             if (isEmpty() == true) {
                 return -1;
@@ -148,12 +170,16 @@ class Class1_MyCircularQueue {
             return data[tail];
         }
 
-        /** Checks whether the circular queue is empty or not. */
+        /**
+         * Checks whether the circular queue is empty or not.
+         */
         public boolean isEmpty() {
             return head == -1;
         }
 
-        /** Checks whether the circular queue is full or not. */
+        /**
+         * Checks whether the circular queue is full or not.
+         */
         public boolean isFull() {
             return ((tail + 1) % size) == head;
         }
@@ -169,12 +195,16 @@ class Class1_MyCircularQueue {
         private int count = 0;
         private int[] data;
 
-        /** Initialize your data structure here. Set the size of the queue to be k. */
+        /**
+         * Initialize your data structure here. Set the size of the queue to be k.
+         */
         public MyCircularQueueBest(int k) {
             data = new int[k];
         }
 
-        /** Insert an element into the circular queue. Return true if the operation is successful. */
+        /**
+         * Insert an element into the circular queue. Return true if the operation is successful.
+         */
         public boolean enQueue(int value) {
             if (this.isFull()) {
                 return false;
@@ -185,7 +215,9 @@ class Class1_MyCircularQueue {
             return true;
         }
 
-        /** Delete an element from the circular queue. Return true if the operation is successful. */
+        /**
+         * Delete an element from the circular queue. Return true if the operation is successful.
+         */
         public boolean deQueue() {
             if (this.isEmpty()) {
                 return false;
@@ -195,7 +227,9 @@ class Class1_MyCircularQueue {
             return true;
         }
 
-        /** Get the front item from the queue. */
+        /**
+         * Get the front item from the queue.
+         */
         public int Front() {
             if (this.isEmpty()) {
                 return -1;
@@ -203,7 +237,9 @@ class Class1_MyCircularQueue {
             return data[header];
         }
 
-        /** Get the last item from the queue. */
+        /**
+         * Get the last item from the queue.
+         */
         public int Rear() {
             if (this.isEmpty()) {
                 return -1;
@@ -211,12 +247,16 @@ class Class1_MyCircularQueue {
             return data[(tail + data.length - 1) % data.length];
         }
 
-        /** Checks whether the circular queue is empty or not. */
+        /**
+         * Checks whether the circular queue is empty or not.
+         */
         public boolean isEmpty() {
             return count == 0;
         }
 
-        /** Checks whether the circular queue is full or not. */
+        /**
+         * Checks whether the circular queue is full or not.
+         */
         public boolean isFull() {
             return count == data.length;
         }
