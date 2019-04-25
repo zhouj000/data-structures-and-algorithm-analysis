@@ -218,7 +218,7 @@ public class Class4_NumSquares {
 			return -1;
 		}
     
-		public static boolean isSquare(int n){
+		public boolean isSquare(int n){
 			double temp = Math.sqrt(n);
 			int m = (int) temp;
 			return m * m == n;
