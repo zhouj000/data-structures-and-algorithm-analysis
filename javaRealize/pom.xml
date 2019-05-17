@@ -8,5 +8,21 @@
     <artifactId>java-realize</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <testSource>1.8</testSource>
+                    <testTarget>1.8</testTarget>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+                <version>3.3</version>
+            </plugin>
+        </plugins>
+    </build>
+
 
 </project>
