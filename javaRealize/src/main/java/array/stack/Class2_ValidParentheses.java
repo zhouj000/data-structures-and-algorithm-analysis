@@ -14,7 +14,7 @@ import java.util.Stack;
  * 3.看题目有空格的问题，做了replaceAll(耗时)来避免取下一个时判断空格，然而从其他实现中没有发现
  *
  **/
-public class Class2_MySolution {
+public class Class2_ValidParentheses {
 
     public boolean isValid(String s) {
         if ("".equals(s)) {
@@ -139,7 +139,7 @@ public class Class2_MySolution {
 
 
 
-    
+
     /**
      * 成对关系，用map也正好符合
      */
