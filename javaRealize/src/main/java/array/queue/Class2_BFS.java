@@ -4,7 +4,7 @@ package array.queue;
  * 课程题：岛屿的数量
  *
  * 自己的设计思路：（没有实现）
- * 1.从0,0根节点开始向右和下广度DFS遍历，类似一棵树，找到1的放入used队列
+ * 1.从0,0根节点开始向右和下广度BFS遍历，类似一棵树，找到1的放入used队列
  * 2.判断1的节点，之后找下一个根节点查找下一棵树的岛屿
  * 3.卡在怎么找下一个根节点，还不会重复计算
  *
@@ -12,7 +12,7 @@ package array.queue;
  * 1.可以把找到的陆地修改为0，避免重复的方法
  * 2.按树的方式思路遍历，虽然想到四个方向，但没按图的思路遍历
  */
-public class Class2_DFS {
+public class Class2_BFS {
 
     public int numIslands(char[][] grid) {
         if (grid == null || grid.length == 0 || grid[0].length == 0)
@@ -25,7 +25,7 @@ public class Class2_DFS {
                 // 注意char
                 if (grid[i][j] == '1') {
                     count++;
-                    dfsSearch(grid, i, j, rows, cols);
+                    bfsSearch(grid, i, j, rows, cols);
                 }
             }
         }
@@ -34,7 +34,7 @@ public class Class2_DFS {
 
     // 每遇到'1'后, 开始向四个方向 递归搜索. 搜到后变为'0',
     // 因为相邻的属于一个island. 然后开始继续找下一个'1'.
-    private void dfsSearch(char[][] grid,
+    private void bfsSearch(char[][] grid,
                            int i, int j, int rows, int cols) {
         if (i < 0 || i >= rows || j < 0 || j >= cols)
             return;
@@ -42,10 +42,10 @@ public class Class2_DFS {
             return;
         // 也可以才用一个visited数组，标记遍历过的岛屿
         grid[i][j] = '0';
-        dfsSearch(grid, i + 1, j, rows, cols);
-        dfsSearch(grid, i - 1, j, rows, cols);
-        dfsSearch(grid, i, j + 1, rows, cols);
-        dfsSearch(grid, i, j - 1, rows, cols);
+        bfsSearch(grid, i + 1, j, rows, cols);
+        bfsSearch(grid, i - 1, j, rows, cols);
+        bfsSearch(grid, i, j + 1, rows, cols);
+        bfsSearch(grid, i, j - 1, rows, cols);
     }
 
 
@@ -79,7 +79,7 @@ public class Class2_DFS {
 */
 
 
-    class DFSBest {
+    class BFSBest {
 
         public int numIslands(char[][] grid) {
             if (grid.length == 0) return 0;
@@ -87,7 +87,7 @@ public class Class2_DFS {
             for (int i = 0; i < grid.length; i++) {
                 for (int j = 0; j < grid[0].length; j++) {
                     if (grid[i][j] == '1') {
-                        dfs(grid, i, j);
+                        bfs(grid, i, j);
                         count++;
                     }
                 }
@@ -95,19 +95,19 @@ public class Class2_DFS {
             return count;
         }
 
-        public void dfs(char[][] grid, int i, int j) {
+        public void bfs(char[][] grid, int i, int j) {
             grid[i][j] = '0';
             if (i != 0 && grid[i - 1][j] == '1') {
-                dfs(grid, i - 1, j);
+                bfs(grid, i - 1, j);
             }
             if (i < grid.length - 1 && grid[i + 1][j] == '1') {
-                dfs(grid, i + 1, j);
+                bfs(grid, i + 1, j);
             }
             if (j != 0 && grid[i][j - 1] == '1') {
-                dfs(grid, i, j - 1);
+                bfs(grid, i, j - 1);
             }
             if (j < grid[0].length - 1 && grid[i][j + 1] == '1') {
-                dfs(grid, i, j + 1);
+                bfs(grid, i, j + 1);
             }
         }
     }

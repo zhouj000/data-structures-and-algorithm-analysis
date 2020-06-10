@@ -6,7 +6,7 @@ import java.util.concurrent.LinkedBlockingDeque;
 /**
  * 课程题：打开转盘锁
  *
- * 我的思路就是DFS，每一轮进行穷举法
+ * 我的思路就是BFS，每一轮进行穷举法
  *
  * 与最优算法的区别：
  * 1.因为4个数字是有限的组合，因此用了boolean[10000]数组来判断lock数字和已转数字，空间换时间
