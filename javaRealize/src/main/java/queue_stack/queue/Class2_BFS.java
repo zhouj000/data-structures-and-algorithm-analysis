@@ -1,4 +1,4 @@
-package array.queue;
+package queue_stack.queue;
 
 /**
  * 课程题：岛屿的数量

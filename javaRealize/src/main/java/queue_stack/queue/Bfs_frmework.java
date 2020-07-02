@@ -1,4 +1,4 @@
-package array.queue;
+package queue_stack.queue;
 
 /**
  * 使用 BFS 的两个主要方案：遍历或找出最短路径

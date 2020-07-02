@@ -1,4 +1,4 @@
-package array.queue;
+package queue_stack.queue;
 
 import java.util.*;
 

@@ -1,4 +1,4 @@
-package array;
+package queue_stack;
 
 import java.util.*;
 import java.util.regex.Pattern;

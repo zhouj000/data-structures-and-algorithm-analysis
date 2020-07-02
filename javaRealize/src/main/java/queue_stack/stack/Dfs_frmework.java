@@ -1,4 +1,4 @@
-package array.stack;
+package queue_stack.stack;
 
 /**
  * 在大多数情况下，我们在能使用 BFS 时也可以使用 DFS。但是有一个重要的区别：遍历顺序

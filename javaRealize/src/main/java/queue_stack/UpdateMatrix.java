@@ -1,6 +1,4 @@
-package array;
-
-import java.util.Queue;
+package queue_stack;
 
 /**
  * 小结课程题：   矩阵
