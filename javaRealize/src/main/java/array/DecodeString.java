@@ -143,7 +143,7 @@ public class DecodeString {
                     sb = new StringBuilder();
                 } else if ((c <= 'z' && c >= 'a') || (c <= 'Z' && c >= 'A')) {
                     sb.append(c);
-                } else {    // 自注： 这里其实就是处理 ] 的情况
+                } else {    // 后注： 这里其实就是处理 ] 的情况
                     StringBuilder temp = new StringBuilder().append(strStack.pop());
                     int times = numStack.pop();
                     for (int j = 0; j < times; j++) {
@@ -209,7 +209,7 @@ public class DecodeString {
         }
     }
 
-    // 自注： 这个思路和我类似，  他在循环中只是处理了 NUM[ZM]  这一块内容，前面的ZM在遇到后面的]后再处理，最后把所有ZM组合
+    // 后注： 这个思路和我类似，  他在循环中只是处理了 NUM[ZM]  这一块内容，前面的ZM在遇到后面的]后再处理，最后把所有ZM组合
     //        先用peek获取，这样不用像我那样还要考虑放第二个 [ 回去，第一个 [ 直接弹出即可，判断后再用pop获取
     class Solution2 {
         public String decodeString(String s) {
@@ -256,7 +256,7 @@ public class DecodeString {
         }
     }
 
-    // 自注：  深度遍历的思路， 每次递归处理 [] 内的数据
+    // 后注：  深度遍历的思路， 每次递归处理 [] 内的数据
     class Solution3 {
         public String decodeString(String s) {
             return dfs(s, 0)[0]; //深度优先搜索
@@ -287,7 +287,7 @@ public class DecodeString {
         }
     }
 
-    // 自注： 其实和最优1一样，只不过换了个容器
+    // 后注： 其实和最优1一样，只不过换了个容器
     class Solution4 {
         public String decodeString(String s) {
             if (s == null || s.length() == 0) {
