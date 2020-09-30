@@ -15,8 +15,9 @@ package queue_stack.queue;
 public class Class2_BFS {
 
     public int numIslands(char[][] grid) {
-        if (grid == null || grid.length == 0 || grid[0].length == 0)
+        if (grid == null || grid.length == 0 || grid[0].length == 0) {
             return 0;
+        }
         int rows = grid.length;
         int cols = grid[0].length;
         int count = 0;
@@ -36,10 +37,12 @@ public class Class2_BFS {
     // 因为相邻的属于一个island. 然后开始继续找下一个'1'.
     private void bfsSearch(char[][] grid,
                            int i, int j, int rows, int cols) {
-        if (i < 0 || i >= rows || j < 0 || j >= cols)
+        if (i < 0 || i >= rows || j < 0 || j >= cols) {
             return;
-        if (grid[i][j] != '1')
+        }
+        if (grid[i][j] != '1') {
             return;
+        }
         // 也可以才用一个visited数组，标记遍历过的岛屿
         grid[i][j] = '0';
         bfsSearch(grid, i + 1, j, rows, cols);
@@ -82,7 +85,9 @@ public class Class2_BFS {
     class BFSBest {
 
         public int numIslands(char[][] grid) {
-            if (grid.length == 0) return 0;
+            if (grid.length == 0) {
+                return 0;
+            }
             int count = 0;
             for (int i = 0; i < grid.length; i++) {
                 for (int j = 0; j < grid[0].length; j++) {
