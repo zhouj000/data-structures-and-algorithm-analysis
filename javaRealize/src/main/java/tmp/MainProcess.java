@@ -34,13 +34,14 @@ public class MainProcess {
     }
 
     public static void main(String[] args) {
-        String[] ind = {"股票名称", "今日开盘价", "昨日收盘价", "当前价格",
+        String[] ind = {"股票名称", "今日开盘价", "昨日收盘价", "now",
                         "今日最高价", "今日最低价",
                         "买一报价", "卖一报价", "成交股数", "成交金额",
                         "买一股数", "买一报价", "买二股数", "买二报价", "买三股数", "买三报价", "买四股数", "买四报价", "买五股数", "买五报价",
                         "卖一股数", "卖一报价", "卖二股数", "卖二报价", "卖三股数", "卖三报价", "卖四股数", "卖四报价", "卖五股数", "卖五报价",
                         "当前日期", "当前时间"};
-        Look look = new Look(ind, 82.6);
+
+        Look look = new Look(ind, 78.3);
         Thread t = new Thread(look);
         t.start();
     }
@@ -89,9 +90,7 @@ public class MainProcess {
                 }
                 // 每分钟
                 if (count ++ % 30 == 0) {
-                    System.out.println("===========================");
-                    System.out.println(ind[3] + ":  " + tcs[3]);
-                    System.out.println("===========================");
+                    System.out.println("1 min: " + ind[3] + ":  " + tcs[3]);
                 }
                 try {
                     Thread.sleep(2000);
