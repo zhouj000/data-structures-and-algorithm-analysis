@@ -342,8 +342,7 @@ public class FindDuplicateSubtrees {
             if (root == null) {
                 return 3524335;
             }
-            int hash =
-                    ((traverse(root.left) ^ 3) * 3423443 + (traverse(root.right) ^ 13)) * 3423443 + root.val;
+            int hash = ((traverse(root.left) ^ 3) * 3423443 + (traverse(root.right) ^ 13)) * 3423443 + root.val;
             Integer pathFreq = subtreeMap.getOrDefault(hash, 0);
             if (pathFreq == 1) {
                 res.add(root);
